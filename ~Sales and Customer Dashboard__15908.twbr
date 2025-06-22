@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
 <!-- build 20242.24.0910.0334                               -->
-<workbook original-version='18.1' source-build='2024.2.3 (20242.24.0910.0334)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+<workbook original-version='18.1' source-build='2024.2.3 (20242.24.0910.0334)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
     <_.fcp.AccessibleZoneTabOrder.true...AccessibleZoneTabOrder />
     <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
@@ -23,6 +23,7 @@
     <ZoneFriendlyName />
     <ZoneVisibilityControl />
   </document-format-change-manifest>
+  <repository-location id='SalesandCustomerDashboard_17505889969040' path='/workbooks' revision='1.0' />
   <preferences>
     <preference name='ui.encoding.shelf.height' value='24' />
     <preference name='ui.shelf.height' value='26' />
@@ -49,7 +50,7 @@
       <connection class='federated'>
         <named-connections>
           <named-connection caption='Customers' name='textscan.1m6s0p01inmtkh1ez7rmg1qr8ecy'>
-            <connection class='textscan' directory='D:/Projects/Sales Data Tableau/Sales-Performance-Analysis-Using-SQL/datasets/non-eu' filename='Customers.csv' password='' server='' />
+            <connection class='textscan' directory='D:/Projects/Sales Data Tableau/Sales-Performance-Analysis-Using-SQL/datasets/non-eu' filename='Customers.csv' password='' server='' workgroup-auth-mode='as-is' />
           </named-connection>
         </named-connections>
         <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.1m6s0p01inmtkh1ez7rmg1qr8ecy' name='Customers.csv' table='[Customers#csv]' type='table'>
@@ -710,13 +711,18 @@
           <groupfilter function='level-members' level='[Customer Name]' />
         </groupfilter>
       </group>
+      <group caption='Action (Nr.of Orders Per Customer)' hidden='true' name='[Action (Nr.of Orders Per Customer)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Calculation_1119426005913210899]' />
+        </groupfilter>
+      </group>
       <group caption='Action (Sub-Category)' hidden='true' name='[Action (Sub-Category)]' name-style='unqualified' user:auto-column='sheet_link'>
         <groupfilter function='crossjoin'>
           <groupfilter function='level-members' level='[Sub-Category]' />
         </groupfilter>
       </group>
       <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
-        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/UER/AppData/Local/Temp/TableauTemp/#TableauTemp_0ttbg131qkz2nv17isc3w131u8r4.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='06/20/2025 06:57:04 PM' username='tableau_internal_user'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/UER/AppData/Local/Temp/TableauTemp/#TableauTemp_0ttbg131qkz2nv17isc3w131u8r4.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='' username='tableau_internal_user'>
           <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Customers.csv_630471BE2BEC453BB6D4E77B5FA1C2A3' table='[Extract].[Customers.csv_630471BE2BEC453BB6D4E77B5FA1C2A3]' type='table' />
           <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
             <relation name='Orders.csv_DCB2AF6D9B6F45E08EF5F3A9F7CFD1CD' table='[Extract].[Orders.csv_DCB2AF6D9B6F45E08EF5F3A9F7CFD1CD]' type='table' />
@@ -763,7 +769,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>9994</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Orders.csv_DCB2AF6D9B6F45E08EF5F3A9F7CFD1CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Order ID</remote-name>
@@ -778,7 +783,6 @@
               <approx-count>3377</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Orders.csv_DCB2AF6D9B6F45E08EF5F3A9F7CFD1CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Order Date</remote-name>
@@ -792,7 +796,6 @@
               <aggregation>Year</aggregation>
               <approx-count>1405</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Orders.csv_DCB2AF6D9B6F45E08EF5F3A9F7CFD1CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Ship Date</remote-name>
@@ -806,7 +809,6 @@
               <aggregation>Year</aggregation>
               <approx-count>1538</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Orders.csv_DCB2AF6D9B6F45E08EF5F3A9F7CFD1CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Ship Mode</remote-name>
@@ -821,7 +823,6 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Orders.csv_DCB2AF6D9B6F45E08EF5F3A9F7CFD1CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Customer ID</remote-name>
@@ -836,7 +837,6 @@
               <approx-count>1130</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Orders.csv_DCB2AF6D9B6F45E08EF5F3A9F7CFD1CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Segment</remote-name>
@@ -851,7 +851,6 @@
               <approx-count>3</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Orders.csv_DCB2AF6D9B6F45E08EF5F3A9F7CFD1CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Postal Code</remote-name>
@@ -865,7 +864,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>676</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Orders.csv_DCB2AF6D9B6F45E08EF5F3A9F7CFD1CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Product ID</remote-name>
@@ -880,7 +878,6 @@
               <approx-count>2116</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Orders.csv_DCB2AF6D9B6F45E08EF5F3A9F7CFD1CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Sales</remote-name>
@@ -894,7 +891,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>3315</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Orders.csv_DCB2AF6D9B6F45E08EF5F3A9F7CFD1CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Quantity</remote-name>
@@ -908,7 +904,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>14</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Orders.csv_DCB2AF6D9B6F45E08EF5F3A9F7CFD1CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Discount</remote-name>
@@ -922,7 +917,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>11</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Orders.csv_DCB2AF6D9B6F45E08EF5F3A9F7CFD1CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Profit</remote-name>
@@ -936,7 +930,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>3819</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Orders.csv_DCB2AF6D9B6F45E08EF5F3A9F7CFD1CD]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Customer ID</remote-name>
@@ -951,7 +944,6 @@
               <approx-count>793</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Customers.csv_630471BE2BEC453BB6D4E77B5FA1C2A3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Customer Name</remote-name>
@@ -966,7 +958,6 @@
               <approx-count>793</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Customers.csv_630471BE2BEC453BB6D4E77B5FA1C2A3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Postal Code</remote-name>
@@ -980,7 +971,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>631</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Location.csv_4BBD193B7B19431F92995B333DD765C5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>City</remote-name>
@@ -995,7 +985,6 @@
               <approx-count>531</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Location.csv_4BBD193B7B19431F92995B333DD765C5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>State</remote-name>
@@ -1010,7 +999,6 @@
               <approx-count>49</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Location.csv_4BBD193B7B19431F92995B333DD765C5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Region</remote-name>
@@ -1025,7 +1013,6 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Location.csv_4BBD193B7B19431F92995B333DD765C5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Country/Region</remote-name>
@@ -1040,7 +1027,6 @@
               <approx-count>1</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Location.csv_4BBD193B7B19431F92995B333DD765C5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Product ID</remote-name>
@@ -1055,7 +1041,6 @@
               <approx-count>1614</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Products.csv_8E6352E2EDCA4321952CFF74B7A7DC27]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Category</remote-name>
@@ -1070,7 +1055,6 @@
               <approx-count>3</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Products.csv_8E6352E2EDCA4321952CFF74B7A7DC27]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Sub-Category</remote-name>
@@ -1085,7 +1069,6 @@
               <approx-count>17</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Products.csv_8E6352E2EDCA4321952CFF74B7A7DC27]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Product Name</remote-name>
@@ -1100,7 +1083,6 @@
               <approx-count>1637</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Products.csv_8E6352E2EDCA4321952CFF74B7A7DC27]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
           </metadata-records>
         </connection>
@@ -1359,7 +1341,7 @@
         <column-instance column='[Sub-Category]' derivation='None' name='[none:Sub-Category:nk]' pivot='key' type='nominal' />
       </datasource-dependencies>
       <filter class='categorical' column='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:Category:nk]'>
-        <groupfilter function='level-members' level='[none:Category:nk]' />
+        <groupfilter function='level-members' level='[none:Category:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
       </filter>
       <filter class='categorical' column='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:City:nk]'>
         <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
@@ -4922,16 +4904,314 @@
       </zones>
       <devicelayouts>
         <devicelayout auto-generated='true' name='Phone'>
-          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <size maxheight='2900' minheight='2900' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='1' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000' />
-              <zone-style>
-                <format attr='border-color' value='#000000' />
-                <format attr='border-style' value='none' />
-                <format attr='border-width' value='0' />
-                <format attr='margin' value='8' />
-              </zone-style>
+            <zone h='100000' id='78' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='77' param='vert' type-v2='layout-flow' w='98666' x='667' y='1000'>
+                <zone fixed-size='88' h='11125' id='59' is-fixed='true' is-scaled='1' param='D:/Projects/Sales Data Tableau/Sales-Performance-Analysis-Using-SQL/images/Icon - Customer Dashboard.png' type-v2='bitmap' w='4667' x='0' y='0'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='703' forceUpdate='true' h='11125' id='15' type-v2='text' w='59250' x='4667' y='0'>
+                  <formatted-text>
+                    <run bold='true' fontcolor='#000000' fontsize='24'>Customer Dashboard |</run>
+                    <run bold='true' fontcolor='#1da2d0' fontname='Tableau Medium' fontsize='24'>&lt;[Parameters].[Parameter 1]&gt;</run>
+                    <run>Æ&#10;</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='11125' id='17' type-v2='dashboard-object' w='11166' x='67917' y='1500'>
+                  <button action='tabdoc:goto-sheet window-id=&quot;{4EFB638D-88F3-421D-B3CB-0B59D62333A2}&quot;'>
+                    <button-visual-state>
+                      <image-path>D:/Projects/Sales Data Tableau/Sales-Performance-Analysis-Using-SQL/images/Icon - Sales Dashboard.png</image-path>
+                    </button-visual-state>
+                  </button>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='323' h='11125' id='16' type-v2='dashboard-object' w='11084' x='79083' y='1500'>
+                  <button action='tabdoc:goto-sheet window-id=&quot;{3AC532B4-3AC7-4AEC-AA49-95B990E41D66}&quot;'>
+                    <button-visual-state>
+                      <image-path>D:/Projects/Sales Data Tableau/Sales-Performance-Analysis-Using-SQL/images/Icon - Customer Dashboard (active).png</image-path>
+                      <tooltip-text>Go to Customer Dashboard</tooltip-text>
+                    </button-visual-state>
+                  </button>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='25' h='4125' id='47' is-fixed='true' name='Legend of KPI' show-title='false' w='100000' x='0' y='11125'>
+                  <layout-cache fixed-size-h='25' type-h='fixed' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#f5f5f5' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='45' h='6625' hidden-by-user='true' id='58' type-v2='text' w='20501' x='78416' y='14625'>
+                  <formatted-text>
+                    <run bold='true' fontalignment='1' fontcolor='#ffffff' fontsize='14'>F I L T E R S</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8750' hidden-by-user='true' id='48' mode='checkdropdown' name='KPI Customers' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:Category:nk]' type-v2='filter' values='database' w='20501' x='78416' y='40125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8750' hidden-by-user='true' id='49' mode='checkdropdown' name='KPI Customers' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:Sub-Category:nk]' type-v2='filter' values='database' w='20501' x='78416' y='48875'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8750' hidden-by-user='true' id='50' mode='checkdropdown' name='KPI Customers' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:Region:nk]' type-v2='filter' values='database' w='20501' x='78416' y='62500'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8750' hidden-by-user='true' id='51' mode='checkdropdown' name='KPI Customers' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:State:nk]' type-v2='filter' values='database' w='20501' x='78416' y='71250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8750' hidden-by-user='true' id='52' mode='checkdropdown' name='KPI Customers' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:City:nk]' type-v2='filter' values='database' w='20501' x='78416' y='80000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='38000' id='60' is-fixed='true' name='KPI Customers' w='33333' x='0' y='15250'>
+                  <layout-cache minheight='281' type-h='scalable' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='38000' id='63' is-fixed='true' name='KPI Sales Per Customers' w='33334' x='33333' y='15250'>
+                  <layout-cache minheight='333' type-h='scalable' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='38000' id='65' is-fixed='true' name='KPI orders' w='33333' x='66667' y='15250'>
+                  <layout-cache minheight='280' type-h='scalable' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone h='7500' hidden-by-user='true' id='10' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='20501' x='78416' y='21250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone forceUpdate='true' h='4875' hidden-by-user='true' id='53' type-v2='text' w='20501' x='78416' y='35250'>
+                  <formatted-text>
+                    <run fontalignment='1' fontcolor='#22bef2' fontname='Tableau Light' fontsize='11'>-- P R O D U C T --</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone forceUpdate='true' h='5875' id='40' type-v2='text' w='47168' x='1416' y='55375'>
+                  <formatted-text>
+                    <run fontcolor='#212121' fontname='Tableau Medium' fontsize='14'>Customer Distribution by Nr.of Orders</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone forceUpdate='true' h='5875' id='45' type-v2='text' w='47168' x='51416' y='55375'>
+                  <formatted-text>
+                    <run fontcolor='#212121' fontname='Tableau Medium' fontsize='14'>Top 10 Customers By Profit</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone h='4875' hidden-by-user='true' id='54' type-v2='text' w='20501' x='78416' y='57625'>
+                  <formatted-text>
+                    <run fontalignment='1' fontcolor='#22bef2' fontname='Tableau Light' fontsize='11'>-- L O C A T I O N --</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='35375' id='67' is-fixed='true' name='Customer Distribution' show-title='false' w='47168' x='1416' y='61250'>
+                  <layout-cache minheight='129' type-h='scalable' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='51' forceUpdate='true' h='4000' id='71' type-v2='text' w='4917' x='51416' y='61250'>
+                  <formatted-text>
+                    <run fontcolor='#898989' fontname='Tableau Medium' fontsize='10'>Rank</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='100' forceUpdate='true' h='4000' id='72' type-v2='text' w='9000' x='56333' y='61250'>
+                  <formatted-text>
+                    <run fontcolor='#898989' fontname='Tableau Medium' fontsize='10'>Customer</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='136' forceUpdate='true' h='4000' id='73' type-v2='text' w='12000' x='65333' y='61250'>
+                  <formatted-text>
+                    <run fontcolor='#898989' fontname='Tableau Medium' fontsize='10'>Last Order</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='76' forceUpdate='true' h='4000' id='74' type-v2='text' w='7000' x='77333' y='61250'>
+                  <formatted-text>
+                    <run fontcolor='#898989' fontname='Tableau Medium' fontsize='10'>Profit</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='74' forceUpdate='true' h='4000' id='75' type-v2='text' w='6834' x='84333' y='61250'>
+                  <formatted-text>
+                    <run fontcolor='#898989' fontname='Tableau Medium' fontsize='10'>Sales</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone forceUpdate='true' h='4000' id='76' type-v2='text' w='7417' x='91167' y='61250'>
+                  <formatted-text>
+                    <run fontcolor='#898989' fontname='Tableau Medium' fontsize='10'> Orders</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='262' h='31370' id='69' is-fixed='true' name='Top Customers' show-title='false' w='47168' x='51416' y='65250'>
+                  <layout-cache cell-count-h='10' type-h='cell' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
             </zone>
           </zones>
         </devicelayout>
@@ -5165,8 +5445,8 @@
             </zone>
           </zone>
         </zone>
-        <zone fixed-size='160' friendly-name='Vertical Cont.(filter)' h='99875' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='22167' x='77583' y='0'>
-          <zone fixed-size='99' h='13375' id='57' is-fixed='true' type-v2='empty' w='20501' x='78416' y='1250'>
+        <zone fixed-size='160' friendly-name='Vertical Cont.(filter)' h='99875' hidden-by-user='true' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='22167' x='77583' y='0'>
+          <zone fixed-size='99' h='13375' hidden-by-user='true' id='57' is-fixed='true' type-v2='empty' w='20501' x='78416' y='1250'>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -5174,7 +5454,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone fixed-size='45' h='6625' id='58' is-fixed='true' type-v2='text' w='20501' x='78416' y='14625'>
+          <zone fixed-size='45' h='6625' hidden-by-user='true' id='58' is-fixed='true' type-v2='text' w='20501' x='78416' y='14625'>
             <formatted-text>
               <run bold='true' fontalignment='1' fontcolor='#ffffff' fontsize='14'>F I L T E R S</run>
             </formatted-text>
@@ -5185,7 +5465,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone h='7500' id='10' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='20501' x='78416' y='21250'>
+          <zone h='7500' hidden-by-user='true' id='10' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='20501' x='78416' y='21250'>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -5193,7 +5473,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone fixed-size='44' h='6500' id='56' is-fixed='true' type-v2='empty' w='20501' x='78416' y='28750'>
+          <zone fixed-size='44' h='6500' hidden-by-user='true' id='56' is-fixed='true' type-v2='empty' w='20501' x='78416' y='28750'>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -5201,7 +5481,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone forceUpdate='true' h='4875' id='53' type-v2='text' w='20501' x='78416' y='35250'>
+          <zone forceUpdate='true' h='4875' hidden-by-user='true' id='53' type-v2='text' w='20501' x='78416' y='35250'>
             <formatted-text>
               <run fontalignment='1' fontcolor='#22bef2' fontname='Tableau Light' fontsize='11'>-- P R O D U C T --</run>
             </formatted-text>
@@ -5212,7 +5492,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone h='8750' id='48' mode='checkdropdown' name='KPI Sales' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:Category:nk]' type-v2='filter' values='database' w='20501' x='78416' y='40125'>
+          <zone h='8750' hidden-by-user='true' id='48' mode='checkdropdown' name='KPI Sales' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:Category:nk]' type-v2='filter' values='database' w='20501' x='78416' y='40125'>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -5220,7 +5500,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone h='8750' id='49' mode='checkdropdown' name='KPI Sales' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:Sub-Category:nk]' type-v2='filter' values='database' w='20501' x='78416' y='48875'>
+          <zone h='8750' hidden-by-user='true' id='49' mode='checkdropdown' name='KPI Sales' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:Sub-Category:nk]' type-v2='filter' values='database' w='20501' x='78416' y='48875'>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -5228,7 +5508,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone h='4875' id='54' type-v2='text' w='20501' x='78416' y='57625'>
+          <zone h='4875' hidden-by-user='true' id='54' type-v2='text' w='20501' x='78416' y='57625'>
             <formatted-text>
               <run fontalignment='1' fontcolor='#22bef2' fontname='Tableau Light' fontsize='11'>-- L O C A T I O N --</run>
             </formatted-text>
@@ -5239,7 +5519,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone h='8750' id='50' mode='checkdropdown' name='KPI Sales' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:Region:nk]' type-v2='filter' values='database' w='20501' x='78416' y='62500'>
+          <zone h='8750' hidden-by-user='true' id='50' mode='checkdropdown' name='KPI Sales' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:Region:nk]' type-v2='filter' values='database' w='20501' x='78416' y='62500'>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -5247,7 +5527,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone h='8750' id='51' mode='checkdropdown' name='KPI Sales' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:State:nk]' type-v2='filter' values='database' w='20501' x='78416' y='71250'>
+          <zone h='8750' hidden-by-user='true' id='51' mode='checkdropdown' name='KPI Sales' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:State:nk]' type-v2='filter' values='database' w='20501' x='78416' y='71250'>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -5255,7 +5535,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone h='8750' id='52' mode='checkdropdown' name='KPI Sales' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:City:nk]' type-v2='filter' values='database' w='20501' x='78416' y='80000'>
+          <zone h='8750' hidden-by-user='true' id='52' mode='checkdropdown' name='KPI Sales' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:City:nk]' type-v2='filter' values='database' w='20501' x='78416' y='80000'>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -5300,7 +5580,7 @@
             </zone-style>
           </zone>
           <zone h='11125' id='38' type-v2='dashboard-object' w='11083' x='90167' y='1500'>
-            <button action=''>
+            <button action='' active-visual-state-index='1'>
               <toggle-action>tabdoc:toggle-button-click-action window-id=&quot;{4EFB638D-88F3-421D-B3CB-0B59D62333A2}&quot; zone-id=&quot;38&quot; zone-ids=[6]</toggle-action>
               <button-visual-state>
                 <image-path>D:/Projects/Sales Data Tableau/Sales-Performance-Analysis-Using-SQL/images/Icon - Filter Shown.png</image-path>
@@ -5322,16 +5602,290 @@
       </zones>
       <devicelayouts>
         <devicelayout auto-generated='true' name='Phone'>
-          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <size maxheight='2650' minheight='2650' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='1' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000' />
-              <zone-style>
-                <format attr='border-color' value='#000000' />
-                <format attr='border-style' value='none' />
-                <format attr='border-width' value='0' />
-                <format attr='margin' value='8' />
-              </zone-style>
+            <zone h='100000' id='61' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='60' param='vert' type-v2='layout-flow' w='98666' x='667' y='1000'>
+                <zone fixed-size='88' h='11125' id='59' is-fixed='true' is-scaled='1' param='D:/Projects/Sales Data Tableau/Sales-Performance-Analysis-Using-SQL/images/Icon - Customer Dashboard.png' type-v2='bitmap' w='4667' x='0' y='0'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='703' forceUpdate='true' h='11125' id='15' type-v2='text' w='59250' x='4667' y='0'>
+                  <formatted-text>
+                    <run bold='true' fontcolor='#000000' fontsize='24'>Sales Dashboard |</run>
+                    <run bold='true' fontcolor='#1da2d0' fontname='Tableau Medium' fontsize='24'>&lt;[Parameters].[Parameter 1]&gt;</run>
+                    <run>Æ&#10;</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='11125' id='17' type-v2='dashboard-object' w='11166' x='67917' y='1500'>
+                  <button action='tabdoc:goto-sheet window-id=&quot;{4EFB638D-88F3-421D-B3CB-0B59D62333A2}&quot;'>
+                    <button-visual-state>
+                      <image-path>D:/Projects/Sales Data Tableau/Sales-Performance-Analysis-Using-SQL/images/Icon - Sales Dashboard(active).png</image-path>
+                    </button-visual-state>
+                  </button>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='323' h='11125' id='16' type-v2='dashboard-object' w='11084' x='79083' y='1500'>
+                  <button action='tabdoc:goto-sheet window-id=&quot;{3AC532B4-3AC7-4AEC-AA49-95B990E41D66}&quot;'>
+                    <button-visual-state>
+                      <image-path>D:/Projects/Sales Data Tableau/Sales-Performance-Analysis-Using-SQL/images/Icon - Customer Dashboard.png</image-path>
+                      <tooltip-text>Go to Customer Dashboard</tooltip-text>
+                    </button-visual-state>
+                  </button>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='25' h='4125' id='47' is-fixed='true' name='Legend of KPI' show-title='false' w='100000' x='0' y='11125'>
+                  <layout-cache fixed-size-h='25' type-h='fixed' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#f5f5f5' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='45' h='6625' hidden-by-user='true' id='58' type-v2='text' w='20501' x='78416' y='14625'>
+                  <formatted-text>
+                    <run bold='true' fontalignment='1' fontcolor='#ffffff' fontsize='14'>F I L T E R S</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8750' hidden-by-user='true' id='48' mode='checkdropdown' name='KPI Sales' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:Category:nk]' type-v2='filter' values='database' w='20501' x='78416' y='40125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8750' hidden-by-user='true' id='49' mode='checkdropdown' name='KPI Sales' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:Sub-Category:nk]' type-v2='filter' values='database' w='20501' x='78416' y='48875'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8750' hidden-by-user='true' id='50' mode='checkdropdown' name='KPI Sales' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:Region:nk]' type-v2='filter' values='database' w='20501' x='78416' y='62500'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8750' hidden-by-user='true' id='51' mode='checkdropdown' name='KPI Sales' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:State:nk]' type-v2='filter' values='database' w='20501' x='78416' y='71250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8750' hidden-by-user='true' id='52' mode='checkdropdown' name='KPI Sales' param='[federated.1x7vrdc11oer4l18avmb80u3ryeb].[none:City:nk]' type-v2='filter' values='database' w='20501' x='78416' y='80000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='38000' id='25' is-fixed='true' name='KPI Sales' w='33333' x='0' y='15250'>
+                  <layout-cache minheight='279' minwidth='100' type-h='scalable' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='38000' id='28' is-fixed='true' name='KPI Profit' w='33334' x='33333' y='15250'>
+                  <layout-cache minheight='287' minwidth='100' type-h='scalable' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='38000' id='30' is-fixed='true' name='KPI Quantity' w='33333' x='66667' y='15250'>
+                  <layout-cache minheight='279' minwidth='100' type-h='scalable' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone h='7500' hidden-by-user='true' id='10' mode='compact' param='[Parameters].[Parameter 1]' type-v2='paramctrl' w='20501' x='78416' y='21250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone forceUpdate='true' h='4875' hidden-by-user='true' id='53' type-v2='text' w='20501' x='78416' y='35250'>
+                  <formatted-text>
+                    <run fontalignment='1' fontcolor='#22bef2' fontname='Tableau Light' fontsize='11'>-- P R O D U C T --</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='4500' id='40' type-v2='text' w='47168' x='1416' y='55375'>
+                  <formatted-text>
+                    <run fontcolor='#212121' fontname='Tableau Medium' fontsize='14'>Sales &amp; Profit By Subcategory </run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone h='5875' id='45' type-v2='text' w='47168' x='51416' y='55375'>
+                  <formatted-text>
+                    <run fontcolor='#212121' fontname='Tableau Medium' fontsize='14'>Sales &amp;  Profit  Trends Over Time </run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone h='4875' hidden-by-user='true' id='54' type-v2='text' w='20501' x='78416' y='57625'>
+                  <formatted-text>
+                    <run fontalignment='1' fontcolor='#22bef2' fontname='Tableau Light' fontsize='11'>-- L O C A T I O N --</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='31' h='4500' id='42' is-fixed='true' name='Legend of Subcategory' show-title='false' w='32834' x='1416' y='59875'>
+                  <layout-cache fixed-size-h='25' type-h='fixed' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone forceUpdate='true' h='4500' id='43' type-v2='text' w='14334' x='34250' y='59875'>
+                  <formatted-text>
+                    <run fontcolor='#212121' fontname='Tableau Medium'>&lt;[Parameters].[Parameter 1]&gt;</run>
+                    <run fontcolor='#1da2d0' fontname='Tableau Medium'>Æ </run>
+                    <run fontcolor='#1da2d0' fontname='Benton Sans Book'>⬤</run>
+                    <run fontcolor='#1da2d0' fontname='Tableau Medium'>Æ </run>
+                    <run fontcolor='#212121' fontname='Tableau Medium'>Profit</run>
+                    <run fontcolor='#ff5500' fontname='Tableau Medium'>Æ </run>
+                    <run fontcolor='#ff5500' fontname='Benton Sans Book'>🔴</run>
+                    <run fontcolor='#212121' fontname='Tableau Medium'> Loss</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='4125' id='46' type-v2='text' w='47168' x='51416' y='61250'>
+                  <formatted-text>
+                    <run fontcolor='#000000' fontname='Tableau Medium'>&lt;[Parameters].[Parameter 1]&gt; </run>
+                    <run fontcolor='#1da2d0' fontname='Tableau Medium'>⬤ </run>
+                    <run fontcolor='#000000' fontname='Tableau Medium'>Above</run>
+                    <run fontcolor='#ff5500' fontname='Tableau Medium'> 🔴</run>
+                    <run fontcolor='#000000' fontname='Tableau Medium'> Below</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='269' h='32250' id='32' is-fixed='true' name='Subcategory comparison' show-title='false' w='47168' x='1416' y='64375'>
+                  <layout-cache minwidth='356' type-h='fixed' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='261' h='31250' id='34' is-fixed='true' name='Weekly Trends' show-title='false' w='47168' x='51416' y='65375'>
+                  <layout-cache minheight='233' minwidth='191' type-h='scalable' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+              </zone>
             </zone>
           </zones>
         </devicelayout>
@@ -5339,7 +5893,7 @@
       <simple-id uuid='{64EB677A-320E-431A-9DC8-C2144FE0607A}' />
     </dashboard>
   </dashboards>
-  <windows source-height='44'>
+  <windows pres-mode='true' source-height='44'>
     <window class='worksheet' name='KPI Sales'>
       <cards>
         <edge name='left'>
@@ -5709,7 +6263,7 @@
       </cards>
       <simple-id uuid='{EAC65EBD-1A8F-43AC-98D0-F87576A41FCF}' />
     </window>
-    <window class='dashboard' maximized='true' name='Sales Dashboard'>
+    <window class='dashboard' name='Sales Dashboard'>
       <viewpoints>
         <viewpoint name='KPI Profit'>
           <zoom type='entire-view' />
@@ -5727,10 +6281,10 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='38' />
+      <active id='-1' />
       <simple-id uuid='{4EFB638D-88F3-421D-B3CB-0B59D62333A2}' />
     </window>
-    <window class='dashboard' name='Customer  Dashboard '>
+    <window class='dashboard' maximized='true' name='Customer  Dashboard '>
       <viewpoints>
         <viewpoint name='Customer Distribution'>
           <zoom type='entire-view' />
